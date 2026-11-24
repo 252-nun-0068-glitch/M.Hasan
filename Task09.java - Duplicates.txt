@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Task09 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] arr = new int[10];
+        System.out.println("Enter 10 integers:");
+        for (int i = 0; i < 10; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("Duplicates:");
+        for (int i = 0; i < 10; i++) { // Outer loop
+            boolean alreadyCounted = false; // Check if already printed
+            for (int k = 0; k < i; k++) { // Check previous
+                if (arr[k] == arr[i]) {
+                    alreadyCounted = true; // Already counted
+                    break;
+                }
+            }
+            if (alreadyCounted) continue; // Skip
+            int count = 0; // Count occurrences
+            for (int j = 0; j < 10; j++) {
+                if (arr[j] == arr[i]) {
+                    count++; // Increase count
+                }
+            }
+            if (count > 1) { // If duplicate
+                System.out.println(arr[i] + " occurs " + count + " times");
+            }
+        }
+        sc.close();
+    }
+}
+// Time Complexity: O(n^2)

@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Task02 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); // For input
+        int[] arr = new int[10]; // Array of 10
+        System.out.println("Enter 10 integers:");
+        for (int i = 0; i < 10; i++) {
+            arr[i] = sc.nextInt(); // Input
+        }
+        int max = arr[0]; // Assume first is max
+        int min = arr[0]; // Assume first is min
+        int maxIndex = 0; // Index of max
+        int minIndex = 0; // Index of min
+        for (int i = 1; i < 10; i++) { // Check all elements
+            if (arr[i] > max) { // If greater than max
+                max = arr[i]; // Update max
+                maxIndex = i; // Update index
+            }
+            if (arr[i] < min) { // If smaller than min
+                min = arr[i]; // Update min
+                minIndex = i; // Update index
+            }
+        }
+        int secondMin = Integer.MAX_VALUE; // Very large value
+        int secondMinIndex = -1; // Index of second min
+        for (int i = 0; i < 10; i++) { // Second loop
+            if (arr[i] > min && arr[i] < secondMin) { // Greater than min but smaller than current secondMin
+                secondMin = arr[i]; // Update second min
+                secondMinIndex = i; // Update index
+            }
+        }
+        System.out.println("Max: " + max + " at index " + maxIndex); // Display max
+        System.out.println("Min: " + min + " at index " + minIndex); // Display min
+        System.out.println("Second Min: " + secondMin + " at index " + secondMinIndex); // Display second min
+        sc.close();
+    }
+}
+// Time Complexity: O(n)

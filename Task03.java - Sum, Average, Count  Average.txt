@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Task03 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] arr = new int[10]; // Array
+        System.out.println("Enter 10 integers:");
+        for (int i = 0; i < 10; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int sum = 0; // Variable for sum
+        for (int i = 0; i < 10; i++) {
+            sum = sum + arr[i]; // Add each element
+        }
+        double avg = (double) sum / 10; // Calculate average
+        int count = 0; // Count greater than average
+        for (int i = 0; i < 10; i++) {
+            if (arr[i] > avg) { // Check condition
+                count++; // Increase count
+            }
+        }
+        System.out.println("Sum: " + sum); // Display sum
+        System.out.println("Average: " + avg); // Display average
+        System.out.println("Count greater than average: " + count); // Display count
+        sc.close();
+    }
+}
+// Time Complexity: O(n)
